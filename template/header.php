@@ -7,7 +7,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fourth navbar example">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href=""><img src="img/boutique-logo.png" class="img-fluid"
+            <a class="navbar-brand" href="/"><img src="/public/img/boutique-logo.png" class="img-fluid"
                     alt="Accueil de la boutique"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" id="navbarsExample04">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="">Accueil</a>
+                        <a class="nav-link active" aria-current="page" href="/">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">À propos</a>
@@ -36,12 +36,12 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Contact</a>
+                        <a class="nav-link" href="/contact.php">Contact</a>
                     </li>
                 </ul>
 
                 <form role="search">
-                    <input class="form-control" type="search" placeholder="Recherche" aria-label="Search">
+                    <input name="search" class="form-control" type="search" placeholder="Recherche" aria-label="Search">
                 </form>
 
             </div>

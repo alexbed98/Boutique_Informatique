@@ -1,6 +1,28 @@
 <?php
+
 include_once 'src/data.php';
 $products = $data['products-cards']['products'];
+$productsSearch = [];
+
+$search = '';
+
+if (!empty($_GET['search'])) {
+
+    $search = trim(strtolower($_GET['search']));
+
+    foreach ($products as $product) {
+        if (str_contains(strtolower($product['title']),$search)) {
+
+            $productsSearch[] = $product;
+
+        }
+    }
+
+    $products = $productsSearch;
+}
+
+
+
 ?>
 
 <div class="row">
