@@ -19,8 +19,6 @@ if (!empty($_GET['search'])) {
     $products = $productsSearch;
 }
 
-
-
 ?>
 
 <div class="row">

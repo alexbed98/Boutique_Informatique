@@ -1,5 +1,7 @@
 <?php
 
+require_once 'core/validation.php';
+
 //===============================================================
 // Simplement pour simuler l'envoi d'un courriel dans cet exemple
 function email($email, $message) {
@@ -36,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Le message est obligatoire
-    if (empty($message)) {
+    if (empty($message) || stringIsSize($message, 10)) {
 
         $messages['message'] = 'Le message est invalide';
 
@@ -110,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="mb-3">
                         <label for="message" class="form-label">Votre message</label>
-                        <textarea name="message" class="form-control" placeholder="10 mots minimum..." id="message" rows="3" aria-describedby="messageHelp" ><?= htmlspecialchars($message) ?></textarea>
+                        <textarea name="message" class="form-control" placeholder="10 caracteres minimum" id="message" rows="3" aria-describedby="messageHelp" ><?= htmlspecialchars($message) ?></textarea>
                         <div id="messageHelp" class="form-text text-danger"><?= $messages['message'] ?? '' ?></div>
                     </div>
                     
