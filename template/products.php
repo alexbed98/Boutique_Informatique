@@ -10,13 +10,11 @@ if (!empty($_GET['search'])) {
 
     $search = trim(strtolower($_GET['search']));
 
-    foreach ($products as $product) {
-        if (str_contains(strtolower($product['title']),$search)) {
+    $filterBySearch = function($product) use ($search) { 
+        return (str_contains(strtolower($product['title']),$search));
+    };
 
-            $productsSearch[] = $product;
-
-        }
-    }
+    $productsSearch = array_filter($products, $filterBySearch);
 
     $products = $productsSearch;
 }
