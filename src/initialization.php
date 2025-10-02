@@ -1,4 +1,8 @@
 <?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
     define('ROOT', dirname(__DIR__));
     const TEMPLATE = ROOT.'/'.'template';
     const URL_ROOT = '/';

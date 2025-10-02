@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once 'src/Page.php';
 
@@ -24,13 +24,15 @@ require_once 'src/Page.php';
             <div class="collapse navbar-collapse" id="navbarsExample04">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link <?= ACTIVE_PAGE === Page::Home ? 'active' : ''; ?>" aria-current="page" href="<?php echo Page::Home->url() ?>"><?php echo Page::Home->text() ?></a>
+                        <a class="nav-link <?= ACTIVE_PAGE === Page::Home ? 'active' : ''; ?>" aria-current="page"
+                            href="<?php echo Page::Home->url() ?>"><?php echo Page::Home->text() ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">À propos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?= ACTIVE_PAGE === Page::Products ? 'active' : ''; ?>" href="<?php echo Page::Products->url() ?>"><?php echo Page::Products->text() ?></a>
+                        <a class="nav-link <?= ACTIVE_PAGE === Page::Products ? 'active' : ''; ?>"
+                            href="<?php echo Page::Products->url() ?>"><?php echo Page::Products->text() ?></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
@@ -42,11 +44,30 @@ require_once 'src/Page.php';
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?= ACTIVE_PAGE === Page::Contact ? 'active' : ''; ?>" href="<?php echo Page::Contact->url() ?>"><?php echo Page::Contact->text() ?></a>
+                        <a class="nav-link <?= ACTIVE_PAGE === Page::Contact ? 'active' : ''; ?>"
+                            href="<?php echo Page::Contact->url() ?>"><?php echo Page::Contact->text() ?></a>
                     </li>
                 </ul>
 
-                <form role="search" action="<?= Page::Products->url()?>">
+                <!--Connexion/Déconnexion/Administration-->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link <?= ACTIVE_PAGE === Page::Connexion ? 'active' : ''; ?>" 
+                        href="<?php echo Page::Connexion->url() ?>"><?php echo Page::Connexion->text() ?></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">Administration</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="">aaa</a></li>
+                            <li><a class="dropdown-item" href="">bbb</a></li>
+                            <li><a class="dropdown-item" href="">ccc</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--Connexion/Déconnexion/Administration-->
+
+                <form role="search" action="<?= Page::Products->url() ?>">
                     <input name="search" class="form-control" type="search" placeholder="Recherche" aria-label="Search">
                 </form>
 

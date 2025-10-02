@@ -2,14 +2,14 @@
 
 class Json
 {
-    public static function importJson(string $path) : null|array
+    public static function importJson(string $path) : array
     {
-        return json_decode($path, true);
+        $text = file_get_contents($path);
+        return json_decode($text, true);
     }
     public static function exportJson(array $data, string $path) : int|false
     {
         $json =  json_encode($data, JSON_PRETTY_PRINT);
-        file_put_contents($path, $json);
-        return $json;
+        return file_put_contents($path, $json);
     }
 }
