@@ -1,3 +1,9 @@
+<?php 
+
+require_once 'src/Page.php';
+
+?>
+
 <header>
 
     <!--Bannière-Banner-->
@@ -18,13 +24,13 @@
             <div class="collapse navbar-collapse" id="navbarsExample04">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Accueil</a>
+                        <a class="nav-link <?= ACTIVE_PAGE === Page::Home ? 'active' : ''; ?>" aria-current="page" href="<?php echo Page::Home->url() ?>"><?php echo Page::Home->text() ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">À propos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Produits</a>
+                        <a class="nav-link <?= ACTIVE_PAGE === Page::Products ? 'active' : ''; ?>" href="<?php echo Page::Products->url() ?>"><?php echo Page::Products->text() ?></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
@@ -36,11 +42,11 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact.php">Contact</a>
+                        <a class="nav-link <?= ACTIVE_PAGE === Page::Contact ? 'active' : ''; ?>" href="<?php echo Page::Contact->url() ?>"><?php echo Page::Contact->text() ?></a>
                     </li>
                 </ul>
 
-                <form role="search">
+                <form role="search" action="<?= Page::Products->url()?>">
                     <input name="search" class="form-control" type="search" placeholder="Recherche" aria-label="Search">
                 </form>
 

@@ -1,6 +1,11 @@
 <?php
+    include_once 'core/error-exception.php';
+    require_once 'src/Page.php';
+    require_once 'src/initialization.php';
 
-require_once 'core/validation.php';
+    require_once 'core/validation.php';
+
+    const ACTIVE_PAGE = Page::Contact;
 
 //===============================================================
 // Simplement pour simuler l'envoi d'un courriel dans cet exemple
@@ -22,7 +27,7 @@ $messages = [];
 $globalMessageColor = 'text-success';
 
 // Valider et récupérer le contenu du formulaire seulement s'il a été soumit
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (IS_POST) {
 
     // Si la donnée n'est pas présente dans le POST on assigne une chaîne vide
 
@@ -38,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Le message est obligatoire
-    if (empty($message) || stringIsSize($message, 10)) {
+    if (!Validation::stringIsSize($message, 10)) {
 
         $messages['message'] = 'Le message est invalide';
 
@@ -82,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="fr">
 
 <!--Bloc entête document-Head block-->
-<?php include_once 'template/head.php'; ?>
+<?php include_once TEMPLATE.'/head.php'; ?>
 <!--Bloc entête document-Head block-->
 
 <body>
@@ -91,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
 
         <!--Bloc entête-Header block-->
-        <?php include_once 'template/header.php'; ?>
+        <?php include_once TEMPLATE.'/header.php'; ?>
         <!--Bloc entête-Header block-->
         
         <main>
@@ -128,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </main>
         
         <!--Bloc pied de page-Footer block-->
-        <?php include_once 'template/footer.php'; ?>
+        <?php include_once TEMPLATE.'/footer.php'; ?>
         <!--Bloc pied de page-Footer block-->
         
     </div>

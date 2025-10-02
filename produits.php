@@ -3,13 +3,13 @@
     require_once 'src/Page.php';
     require_once 'src/initialization.php';
 
-    const ACTIVE_PAGE = Page::Home;
+    const ACTIVE_PAGE = Page::Products;
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr"></html>
 
-<?php include_once TEMPLATE.'/head.php'; ?>
+<?php include_once TEMPLATE.'/head.php';?>
 
 <body>
 
@@ -20,6 +20,12 @@
 
         <main>
             <h1 class="py-3 mt-3">La boutique d'informatique sur la rive-nord</h1>
+
+            <!--Ligne qui contient des colonnes-Row-->
+
+            <?php include_once TEMPLATE.'/products.php'; ?>
+
+            <!--Ligne-->
 
         </main>
 

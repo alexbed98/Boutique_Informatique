@@ -10,8 +10,8 @@ if (!empty($_GET['search'])) {
 
     $search = trim(strtolower($_GET['search']));
 
-    $filterBySearch = function($product) use ($search) { 
-        return (str_contains(strtolower($product['title']),$search));
+    $filterBySearch = function ($product) use ($search) {
+        return (str_contains(strtolower($product['title']), $search));
     };
 
     $productsSearch = array_filter($products, $filterBySearch);
@@ -30,10 +30,13 @@ if (!empty($_GET['search'])) {
             <!--Carte-Card-->
             <div class="card mt-4">
                 <picture>
-                    <source srcset="/public/img/<?= $prod['images']['sources'][0]['srcset'] ?>" media="<?= $prod['images']['sources'][0]['media'] ?>">
-                    <source srcset="/public/img/<?= $prod['images']['sources'][1]['srcset'] ?>" media="<?= $prod['images']['sources'][1]['media'] ?>">
-                    <source srcset="/public/img/<?= $prod['images']['sources'][2]['srcset'] ?>" media="<?= $prod['images']['sources'][2]['media'] ?>">
-                    <img src="/public/img/<?= $prod['images']['default']['src'] ?>" class="card-img-top"
+                    <source srcset="<?= IMG . $prod['images']['sources'][0]['srcset'] ?>"
+                        media="<?= $prod['images']['sources'][0]['media'] ?>">
+                    <source srcset="<?= IMG . $prod['images']['sources'][1]['srcset'] ?>"
+                        media="<?= $prod['images']['sources'][1]['media'] ?>">
+                    <source srcset="<?= IMG . $prod['images']['sources'][2]['srcset'] ?>"
+                        media="<?= $prod['images']['sources'][2]['media'] ?>">
+                    <img src="<?= IMG . $prod['images']['default']['src'] ?>" class="card-img-top"
                         alt="<?= $prod['images']['default']['alt'] ?>">
                 </picture>
 
